@@ -68,3 +68,13 @@
     margin-left: 23px;
     margin-bottom: 3px;
 }
+
+::-webkit-scrollbar{
+    width: 11px;
+}
+::-webkit-scrollbar-track{
+    background-color: #121212;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(129, 129, 129);
+}
