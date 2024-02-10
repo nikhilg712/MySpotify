@@ -1,4 +1,11 @@
 console.log("Let's start JavaScript");
+let currentSong = new Audio();
+const  playMusic=(track)=>{
+    currentSong.src = "/songs/"+track;
+    currentSong.play();
+
+}
+
 async function getSongs(){
     let sng = await fetch("http://127.0.0.1:5500/songs/");
     let response = await sng.text();
@@ -31,7 +38,16 @@ async function main(){
         <img src="plymusic.svg" alt="play now" class="playnow invert">
     </li>`;
     }
+
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e=>{
+        e.addEventListener("click",()=>{
+            playMusic(e.querySelector(".info").firstElementChild.innerHTML);
+            e.querySelector(".playnow").src = "pause2.svg";
+        })
+        console.log(e.querySelector(".info").firstElementChild.innerHTML);        
+    });
+
+
   
-    console.log(songUL);
 };
 main();
